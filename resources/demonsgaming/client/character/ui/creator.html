@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../assets/css/global.css" rel="stylesheet">
+    <link href="css/charcreator.css" rel="stylesheet">
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/material.js"></script>
+    <script src="js/charcreator.js"></script>
+</head>
+<body>
+
+<!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title" align="center">
+            <img src="../../assets/img/logo.png">
+        </span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link is-active" data-panel="person" data-camera="all">
+                <i class="material-icons">person</i>
+                Person
+            </a>
+            <a class="mdl-navigation__link" data-panel="head" data-camera="head">
+                <i class="material-icons">face</i>
+                Kopf
+            </a>
+            <a class="mdl-navigation__link" data-panel="clothing" data-camera="torso">
+                <i class="material-icons">accessibility</i>
+                Kleidung
+            </a>
+            <a class="mdl-navigation__link" data-panel="accessories" data-camera="torso">
+                <i class="material-icons">more</i>
+                Accessoires
+            </a>
+            <a class="mdl-navigation__link" data-panel="legs" data-camera="legs">
+                <i class="material-icons">airline_seat_legroom_normal</i>
+                Unterkörper
+            </a>
+            <a class="mdl-navigation__link" data-panel="skills" data-camera="all">
+                <i class="material-icons">science</i>
+                Skills
+            </a>
+        </nav>
+        <div style="position: absolute;bottom: 20px;left: 10px; right: 10px" align="center">
+            <a id="create-character"
+               class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                <span class="material-icons">flight_land</span> Einreisen
+            </a>
+            <div id="create-loader" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" style="display: none;"></div>
+        </div>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div id="person-panel" class="navigation-link">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid" style="padding-top: 0;padding-bottom: 0;">
+                                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input on-change-input" type="text" id="name">
+                                            <label class="mdl-textfield__label" for="name">Vorname</label>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input on-change-input" type="text"
+                                                   id="surname">
+                                            <label class="mdl-textfield__label" for="surname">Nachname</label>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input on-change-input" type="text"
+                                                   id="birthdate">
+                                            <label class="mdl-textfield__label" for="birthdate">Geburtsdatum</label>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input on-change-input" type="number"
+                                                   id="bodysize" min="150" max="210">
+                                            <label class="mdl-textfield__label" for="bodysize">Körpergröße (cm)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;">
+                            <div class="mdl-card__supporting-text" style="text-align: center;">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-male">
+                                            <input type="radio" id="gender-male" class="mdl-radio__button" name="gender"
+                                                   value="1"
+                                                   checked>
+                                            <span class="mdl-radio__label">Männlich</span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="gender-female">
+                                            <input type="radio" id="gender-female" class="mdl-radio__button"
+                                                   name="gender" value="2">
+                                            <span class="mdl-radio__label">Weiblich</span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="mother-face">
+                                            <input id="mother-face" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="45" value="0">
+                                            <span>Mutter: <span id="mother-face-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="father-face">
+                                            <input id="father-face" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="45" value="0">
+                                            <span>Vater: <span id="father-face-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="skin-color">
+                                            <input id="skin-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="1" value="0.5" step="0.01">
+                                            <span>Hautfarbe: <span id="skin-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="head-panel" class="navigation-link" style="display: none;">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="face">
+                                            <input id="face" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="1" value="0.5" step="0.01">
+                                            <span>Gesicht: <span id="face-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="hair">
+                                            <input id="hair" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Haare: <span id="hair-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="hair-color">
+                                            <input id="hair-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range"
+                                                   min="0" max="100" value="0">
+                                            <span>Haare (Farbe): <span id="hair-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="mask">
+                                            <input id="mask" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Maske: <span id="mask-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="mask-color">
+                                            <input id="mask-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range"
+                                                   min="0" max="100" value="0">
+                                            <span>Maske (Farbe): <span id="mask-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="clothing-panel" class="navigation-link" style="display: none;">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="shirt">
+                                            <input id="shirt" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="-1"
+                                                   max="100" value="0">
+                                            <span>T-Shirt: <span id="shirt-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="shirt-color">
+                                            <input id="shirt-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>T-Shirt (Farbe): <span id="shirt-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="torso2">
+                                            <input id="torso2" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="-1"
+                                                   max="100" value="0">
+                                            <span>Oberteil: <span id="torso2-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="torso2-color">
+                                            <input id="torso2-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Oberteil (Farbe): <span id="torso2-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="accessories-panel" class="navigation-link" style="display: none;">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="neck">
+                                            <input id="neck" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Hals: <span id="neck-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="neck-color">
+                                            <input id="neck-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range"
+                                                   min="0" max="100" value="0">
+                                            <span>Hals (Farbe): <span id="neck-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="torso">
+                                            <input id="torso" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Arme: <span id="torso-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="torso-color">
+                                            <input id="torso-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range"
+                                                   min="0" max="100" value="0">
+                                            <span>Arme (Farbe): <span id="torso-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="bag">
+                                            <input id="bag" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Tasche: <span id="bag-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="bag-color">
+                                            <input id="bag-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Tasche (Farbe): <span id="bag-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="vest">
+                                            <input id="vest" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Schutzweste: <span id="vest-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="vest-color">
+                                            <input id="vest-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Schutzweste (Farbe): <span id="vest-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="legs-panel" class="navigation-link" style="display: none;">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="pants">
+                                            <input id="pants" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Hose: <span id="pants-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="pants-color">
+                                            <input id="pants-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range"
+                                                   min="0" max="100" value="0">
+                                            <span>Hose (Farbe): <span id="pants-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="shoes">
+                                            <input id="shoes" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="100" value="0">
+                                            <span>Schuhe: <span id="shoes-number"></span></span>
+                                        </label>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <label for="shoes-color">
+                                            <input id="shoes-color" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range"
+                                                   min="0" max="100" value="0">
+                                            <span>Schuhe (Farbe): <span id="shoes-color-number"></span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="shoes-panel" class="navigation-link" style="display: none;">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="skills-panel" class="navigation-link" style="display: none;">
+                <div class="mdl-grid" style="margin-top: 0;">
+                    <div class="mdl-cell--3-col-desktop">
+                        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;min-height: unset;">
+                            <div class="mdl-card__supporting-text"
+                                 style="text-align: center;padding-top: 0;padding-bottom: 0;">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col-desktop">
+                                        <h4 style="margin-top: 5px;">Punkte verfügbar: <span id="skill-points">0</span></h4>
+                                        <label for="skill-stamina">
+                                            <input id="skill-stamina" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="10" value="3">
+                                            <span>Ausdauer: <span id="skill-stamina-number"></span></span>
+                                        </label>
+                                        <label for="skill-strength">
+                                            <input id="skill-strength" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="10" value="1">
+                                            <span>Stärke: <span id="skill-strength-number"></span></span>
+                                        </label>
+                                        <label for="skill-lung">
+                                            <input id="skill-lung" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="10" value="1">
+                                            <span>Tauchen: <span id="skill-lung-number"></span></span>
+                                        </label>
+                                        <label for="skill-vehicle">
+                                            <input id="skill-vehicle" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="10" value="2">
+                                            <span>Fahrzeuge: <span id="skill-vehicle-number"></span></span>
+                                        </label>
+                                        <label for="skill-shooting">
+                                            <input id="skill-shooting" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="10" value="2">
+                                            <span>Schießen: <span id="skill-shooting-number"></span></span>
+                                        </label>
+                                        <label for="skill-stealth">
+                                            <input id="skill-stealth" class="mdl-slider mdl-js-slider on-change-slider"
+                                                   type="range" min="0"
+                                                   max="10" value="1">
+                                            <span>Schleichen: <span id="skill-stealth-number"></span></span>
+                                        </label>
+                                        <br><br>
+                                        <span>Hinweis: Skills können im Laufe des Spiels verbessert werden!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

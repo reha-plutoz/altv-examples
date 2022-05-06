@@ -1,0 +1,62 @@
+/*<editor-fold desc="mdl-card">*/
+.mdl-card {
+    background: #21272f;
+    border-radius: 6px;
+}
+
+.mdl-card__supporting-text {
+    color: rgba(255, 255, 255, .54);
+}
+
+.mdl-card__actions.mdl-card--border {
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+/*</editor-fold>*/
+/*<editor-fold desc="mdl-radio">*/
+.mdl-radio__outer-circle {
+    border: 2px solid rgba(255, 255, 255, .54);
+}
+/*</editor-fold>*/
+/*<editor-fold desc="mdl-slider">*/
+.mdl-slider__background-upper {
+    background: rgba(255, 255, 255, .26);
+}
+
+.mdl-slider.is-upgraded.is-lowest-value::-webkit-slider-thumb {
+    border: 2px solid rgba(255, 255, 255, .26);
+}
+/*</editor-fold>*/
+/*<editor-fold desc="mdl-tabs">*/
+.mdl-tabs__tab {
+    color: rgba(255,255,255,.54);
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+    color: rgba(255,255,255,.87);
+}
+
+.mdl-tabs__tab-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, .26);
+}
+/*</editor-fold>*/
+/*<editor-fold desc="mdl-textfield">*/
+.mdl-textfield__input {
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+    color: rgba(255, 255, 255, 1);
+}
+
+.mdl-textfield__label {
+    color: rgba(255, 255, 255, .26);
+}
+/*</editor-fold>*/
+/*<editor-fold desc="mdl-navigation">*/
+.mdl-navigation__link {
+    cursor: pointer;
+}
+
+.mdl-navigation__link.is-active {
+    background: #FF4B2B !important;
+    color: white !important;
+    cursor: pointer;
+}
+/*</editor-fold>*/

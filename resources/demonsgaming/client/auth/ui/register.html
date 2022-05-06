@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="../../assets/css/global.css" rel="stylesheet">
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/material.js"></script>
+    <script src="js/register.js"></script>
+</head>
+<body style="background: url(../../assets/img/pageBG.jpg); backdrop-filter: blur(4px);">
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col-desktop"></div>
+    <div class="mdl-cell mdl-cell--4-col-desktop">
+        <div class="mdl-card mdl-shadow--2dp" style="width: 100%;margin-top: 200px;">
+            <div class="mdl-card__title" style="padding-bottom: 0;">
+                <img src="../../assets/img/logo.png" style="margin: auto;width: 150px;">
+            </div>
+            <div class="mdl-card__supporting-text" style="width: unset;">
+                <div class="mdl-grid" style="padding: 0;">
+                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="mail">
+                            <label class="mdl-textfield__label" for="mail">E-Mail</label>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="username">
+                            <label class="mdl-textfield__label" for="username">Nutzername</label>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="password" id="password">
+                            <label class="mdl-textfield__label" for="password">Passwort</label>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col-desktop">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="password" id="password_repeat">
+                            <label class="mdl-textfield__label" for="password_repeat">Passwort wiederholen</label>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col-desktop" align="center" style="text-align: center;">
+                        <a onclick="toLogin()" style="cursor: pointer;">Du hast bereits einen Account? Jetzt einloggen.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border" style="text-align: center;">
+                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width: 100px;" onclick="register()">
+                    Registrieren
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col-desktop"></div>
+</div>
+</body>
+</html>

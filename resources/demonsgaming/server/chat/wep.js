@@ -1,0 +1,54 @@
+export const weaponList = {
+    // melee
+    unarmed: -1569615261,
+    knife: -1716189206,
+    nightstick: 1737195953,
+    hammer: 1317494643,
+    bat: -1786099057,
+    crowbar: -2067956739,
+    golfclub: 1141786504,
+    bottle: -102323637,
+    dagger: -1834847097,
+    hatchet: -102973651,
+    knuckleduster: -656458692,
+    machete: -581044007,
+    flashlight: -1951375401,
+    switchblade: -538741184,
+    poolcue: -1810795771,
+    wrench: 419712736,
+    battleaxe: -853065399,
+    // pistols
+    pistol: 453432689,
+    combatpistol: 1593441988,
+    pistol50: -1716589765,
+    snspistol: -1076751822,
+    heavypistol: -771403250,
+    appistol: 584646201,
+    stungun: 911657153,
+    // machine guns
+    microsmg: 324215364,
+    machinepistol: -619010992,
+    smg: 736523883,
+    assaultsmg: -270015777,
+    combatpdw: 171789620,
+    mg: -1660422300,
+    combatmg: 2144741730,
+    minismg: -1121678507,
+    // assault rifles
+    assaultrifle: -1074790547,
+    carbinerifle: -2084633992,
+    advancedrifle: -1357824103,
+    specialcarbine: -1063057011,
+    bullpuprifle: 2132975508,
+    // shotguns
+    pumpshotgun: 487013001,
+    sawnoffshotgun: 2017895192,
+    // thrown
+    molotov: 615608432,
+    fireextinguisher: 101631238,
+    flare: 1233104067,
+    ball: 600439132,
+    snowball: 126349499,
+    // utility
+    parachute: -72657034
+};

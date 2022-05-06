@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="../../assets/css/global.css" rel="stylesheet">
+    <script src="../../assets/js/jquery.js"></script>
+    <script src="../../assets/js/material.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body style="background: url(../../assets/img/pageBG.jpg); backdrop-filter: blur(4px);">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet"></div>
+        <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--4-col-tablet">
+            <div class="mdl-card mdl-shadow--2dp" style="width: 100%;margin-top: 200px;">
+                <div class="mdl-card__title" style="padding-bottom: 0;">
+                    <img src="../../assets/img/logo.png" style="margin: auto;width: 150px;">
+                </div>
+                <div class="mdl-card__supporting-text" style="text-align: center;">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="username">
+                        <label class="mdl-textfield__label" for="username">E-Mail oder Nutzername</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="password">
+                        <label class="mdl-textfield__label" for="password">Passwort</label>
+                    </div>
+                    <br>
+                    <a class="pointer" onclick="toRegister()"><b>Du hast noch keinen Account?</b></a>
+                </div>
+                <div class="mdl-card__actions mdl-card--border" style="text-align: center;">
+                    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width: 100px;" onclick="login()">
+                        Einloggen
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet"></div>
+    </div>
+</body>
+</html>

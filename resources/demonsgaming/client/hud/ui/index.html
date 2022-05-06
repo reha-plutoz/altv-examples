@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	<head>
+		<title>HUD</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link href="../../assets/css/global.css" rel="stylesheet">
+		<link href="./css/style.css" rel="stylesheet">
+		<script src="../../assets/js/jquery.js"></script>
+		<script src="./js/index.js"></script>
+	</head>
+
+	<body>
+		<div class="bottom-right">
+			<div class="black-bar">
+				<i class="material-icons">account_balance_wallet</i>
+				<span><span id="cash">0</span>  $</span>
+			</div>
+			<div class="black-bar">
+				<i class="material-icons">account_balance</i>
+				<span><span id="bank">0</span> $</span>
+			</div>
+		</div>
+		<div class="bottom-middle" style="text-align: center;">
+			<div id="vehicle" class="black-bar-middle" style="display: inline-block;">
+				<i class="material-icons">speed</i>
+				<span><span id="speed">0</span> KM/H</span>
+				<i class="material-icons">local_car_wash</i>
+				<span><span id="fuel">0</span> Liter</span>
+				<i class="material-icons">show_chart</i>
+				<span><span id="drove">0</span> KM</span>
+			</div>
+		</div>
+	</body>
+</html>

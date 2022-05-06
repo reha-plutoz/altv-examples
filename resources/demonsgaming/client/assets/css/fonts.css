@@ -1,0 +1,22 @@
+@import "material-icons.css";
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/poppins/Poppins-Regular.ttf) format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/poppins/Poppins-Bold.ttf) format('woff2');
+}
+
+@font-face {
+    font-family: 'Pricedown';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/pricedown.ttf) format('woff2');
+}

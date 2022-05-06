@@ -1,0 +1,30 @@
+input[type="number"]:not(.mdl-textfield__input) {
+    background: #00000033;
+    border: none;
+    color: white;
+    outline: none;
+    width: 45px;
+}
+
+.mdl-layout-title {
+    padding-left: 0 !important;
+    margin-top: 8px;
+}
+
+.mdl-layout-title > img {
+    margin: auto;
+    width: 125px;
+}
+
+.mdl-layout__content {
+    padding-left: 10px;
+}
+
+.mdl-grid {
+    padding: 4px;
+}
+
+.mdl-card__supporting-text {
+    width: unset;
+    padding: 0;
+}

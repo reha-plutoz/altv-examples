@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Garage</title>
+        <link href="../../assets/css/global.css" rel="stylesheet">
+        <script src="../../assets/js/material.js"></script>
+    </head>
+
+    <body style="background-color: transparent">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet">
+                <div class="mdl-card mdl-shadow--2dp" style="margin-top: 200px;">
+                    <div class="mdl-card__title" style="padding-bottom: 0;">
+                        Garage <span></span>
+                    </div>
+                    <div class="mdl-card__supporting-text" style="text-align: center;">
+                        <ul class="mdl-list">
+                            <!-- MDL Progress Bar with Indeterminate Progress -->
+                            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" style=""></div>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet"></div>
+            <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--4-col-tablet"></div>
+        </div>
+
+        <!-- custom -->
+        <script>
+            document.addEventListener('DOMContentLoaded', e => {
+                if ('alt' in window) alt.emit('garage.ready');
+            });
+
+            alt.on('vehicleSpawner:data', html => {
+                document.querySelector('#vehicleList').innerHTML = html;
+            });
+
+            document.querySelector('#close').addEventListener('click', () => {
+                alt.emit('vehicleSpawner:close', true);
+            });
+        </script>
+    </body>
+</html>
